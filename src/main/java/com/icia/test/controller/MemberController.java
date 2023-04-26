@@ -35,7 +35,6 @@ public class MemberController {
         model.addAttribute("result",saveResult);
         return "memberResult";
 
-
     }
 
 
