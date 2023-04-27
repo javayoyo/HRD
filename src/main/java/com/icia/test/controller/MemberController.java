@@ -14,47 +14,41 @@ import java.util.List;
 
 @Controller
 public class MemberController {
-
     @Autowired
     private MemberService memberService;
-    @GetMapping("/")
-    public String index() {
-    return "index";
-    }
-
 
     @GetMapping("/save")
-    public String save() {
+    public String saveForm() {
         return "save";
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute MemberDTO memberDTO, Model model) {
-        int saveResult = memberService.save(memberDTO);
-        model.addAttribute("result",saveResult);
-        return "saveResult";
-
+    public String save(@ModelAttribute MemberDTO memberDTO) {
+        boolean result = memberService.save(memberDTO);
+        if (result) {
+            return "redirect:/list";
+        } else {
+            return "errorPage";
+        }
     }
 
     @GetMapping("/list")
     public String findAll(Model model) {
         List<MemberDTO> memberDTOList = memberService.findAll();
-        for(MemberDTO memberDTO:memberDTOList) {
-            System.out.println("memberDTO = " + memberDTO);
-        }
         model.addAttribute("memberList", memberDTOList);
         return "list";
     }
 
     @GetMapping("/detail")
-    public String findById(@RequestParam("custno")Long custno, Model model) {
+    public String findById(@RequestParam("custno") Long custno, Model model) {
         MemberDTO memberDTO = memberService.findById(custno);
-        model.addAttribute("member",memberDTO);
-        return "detail";
+        model.addAttribute("member", memberDTO);
+        return "update";
     }
 
-
-
-
-
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO) {
+        memberService.update(memberDTO);
+        return "redirect:/detail?custno="+memberDTO.getCustno();
+    }
 }

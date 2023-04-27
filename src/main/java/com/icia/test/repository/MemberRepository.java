@@ -13,9 +13,17 @@ public class MemberRepository {
     @Autowired
     private SqlSessionTemplate sql;
 
-    public int save(MemberDTO memberDTO) {
-        return sql.insert("Member.save", memberDTO);
-    }
+    public boolean save(MemberDTO memberDTO) {
+        try {
+            sql.insert("Member.save", memberDTO);
+            return true;
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return false;
+
+        }
+        }
 
 
     public List<MemberDTO> findAll() {
@@ -26,6 +34,9 @@ public class MemberRepository {
         return sql.selectOne("Member.findById",custno);
     }
 
+    public void update(MemberDTO memberDTO) {
+        sql.update("Member.update", memberDTO);
+    }
 
 
 }

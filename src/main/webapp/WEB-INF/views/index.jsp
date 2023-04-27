@@ -1,96 +1,35 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 2023-04-26
-  Time: 오후 1:24
+  Date: 2023-04-27
+  Time: 오전 10:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <script src="/resources/js/bootstrap.bundle.min.js"></script>
-    <style>
-
-        ul {
-            list-style-type: none;
-            overflow: hidden;
-
-        }
-        li {
-            float: left;
-        }
-        li a {
-            display: inline-block;
-            text-decoration: none;
-            padding: 15px 15px;
-        }
-        .header {
-            background: #0a53be;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-        .nav {
-            background: #6ea8fe;
-            color: white;
-        }
-        .section {
-            background: #a7acb1;
-            color: black;
-            text-align: center;
-            height:500px;
-
-        }
-        .footer {
-            background: #0d6efd;
-            color: white;
-            text-align: center;
-        }
-
-
-
-    </style>
+    <link rel="stylesheet" href="/resources/css/main.css">
 </head>
 <body>
 
+<%@include file="./component/header.jsp"%>
+<%@include file="./component/nav.jsp"%>
+<div id="section">
+    <h2>쇼핑몰 회원관리 프로그램</h2>
+    <pre>
+        쇼핑몰 회원정보의 회원매출정보 데이터베이스를 구축하고 회원관리 프로그램을 작성하는 프로그램이다.
+        프로그램 작성 순서
+        1. 회원정보 테이블을 생성한다.
+        2. 매출정보 테이블을 생성한다.
+        3. 회원정보, 매출정보 테이블에 제시된 문제지의 참조데이터를 추가 생성한다.
+        4. 회원정보 입력 화면 프로그램을 작성한다.
+        5. 회원정보 조회 프로그램을 작성한다.
+        6. 회원매출정보 조회 프로그램을 작성한다.
+    </pre>
+</div>
 
-    <div class = "header">
-        <h2> 쇼핑몰 회원관리 ver 1.0 </h2>
-
-    </div>
-    <div class = "nav">
-        <ul>
-            <li>
-                <a href="/save">회원등록</a>
-            </li>
-            <li>
-                <a href="/list">회원목록조회/수정</a>
-            </li>
-            <li>
-                <a href="#">회원매출조회</a>
-            </li>
-            <li>
-                <a href="/">홈으로.</a>
-            </li>
-
-        </ul>
-
-    </div>
-    <div class = "section">
-        <h2>쇼핑몰 회원관리 프로그램</h2>
-
-    </div>
-    <div class = "footer">
-        <h2>HRDKOREA</h2>
-
-    </div>
-
-
+<%@include file="./component/footer.jsp"%>
 
 </body>
-<script>
-
-</script>
 </html>
