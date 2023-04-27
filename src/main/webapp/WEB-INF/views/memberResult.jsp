@@ -12,9 +12,17 @@
     <script>
         const result = '${result}';
         console.log(result);
+        if(result > 0) {
+            alert("회원등록이 완료 되었습니다! ");
+            location.href = "/detail";
+        }else {
+            alert("뭘 잘못했니?");
+            location.href = "/save";
+        }
     </script>
 </head>
 <body>
+
 
 </body>
 </html>

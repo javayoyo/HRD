@@ -10,6 +10,14 @@
 
     </insert>
 
+    <select id="findAll" resultType="member">
+        select * from member_tbl_02
+    </select>
+
+    <select id="findById" parameterType="Long" resultType="member">
+        select * from member_tbl_02 where custno=#{custno}
+    </select>
+
 </mapper>
 
 

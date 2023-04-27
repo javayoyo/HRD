@@ -89,12 +89,6 @@
 
 
 
-
-
-
-<a href="/member">member로 가기</a>
-
-
 </body>
 <script>
 
